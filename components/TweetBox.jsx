@@ -9,7 +9,7 @@ const TweetBox = () => {
   const [input, setInput] = useState('');
 
   return (
-    <div className="flex space-x-2 p-5">
+    <div className="flex space-x-2 p-4">
       <img src="https://links.papareact.com/gll" alt="user" className="h-14 w-14 object-cover rounded-full mt-4" />
 
       <div className="flex flex-1 items-center pl-2">
