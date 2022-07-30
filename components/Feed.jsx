@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RefreshIcon } from '@heroicons/react/outline';
 
 import TweetBox from './TweetBox';
+import Tweet from './Tweet';
 
-const Feed = () => {
-  console.log('Feed');
+const Feed = ({ posts }) => {
+  const [tweets, setTweets] = useState(posts);
+
   return (
     <div className="col-span-7 lg:col-span-5 border-x">
       <div className="flex items-center justify-between">
@@ -14,6 +16,12 @@ const Feed = () => {
 
       <div>
         <TweetBox />
+      </div>
+
+      <div>
+        {tweets
+          ? (tweets.map((tweet) => <Tweet key={tweet._id} tweet={tweet} />))
+          : <p className="text-center font-bold text-2xl">Your feed is empty</p>}
       </div>
     </div>
   );
