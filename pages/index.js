@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+import { Feed, Sidebar, Widgets } from '../components';
+
 const Home = () => {
   console.log('Home');
   return (
@@ -8,7 +10,14 @@ const Home = () => {
         <title>Twitter</title>
         <link rel="icon" href="/twitter-logo.png" />
       </Head>
-      <h1 className="text-blue-500 font-bold">Let us Begin</h1>
+
+      <main className="grid grid-cols-9">
+        <Sidebar />
+
+        <Feed />
+
+        <Widgets />
+      </main>
     </div>
   );
 };
