@@ -6,10 +6,17 @@ import { ChatAlt2Icon,
   UploadIcon,
   SwitchHorizontalIcon,
 } from '@heroicons/react/outline';
+import { useSession } from 'next-auth/react';
+import toast from 'react-hot-toast';
+
 import { fetchComments } from '../utils/fetchComments';
 
 const Tweet = ({ tweet }) => {
   const [comments, setComments] = useState([]);
+  const [input, setInput] = useState('');
+  const [commentBoxVisible, setCommentBoxVisible] = useState(false);
+  const { data: session } = useSession();
+
   const refreshComments = async () => {
     const tweetComments = await fetchComments(tweet._id);
     setComments(tweetComments);
@@ -18,6 +25,33 @@ const Tweet = ({ tweet }) => {
   useEffect(() => {
     refreshComments();
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const commentToast = toast.loading('Posting Comment...');
+
+    const comment = {
+      comment: input,
+      tweetId: tweet._id,
+      username: session?.user?.name || 'Unknown User',
+      profileImg: session?.user?.image || 'https://links.papareact.com/gll',
+    };
+
+    const result = await fetch('/api/addComment', {
+      body: JSON.stringify(comment),
+      method: 'POST',
+    });
+
+    refreshComments();
+    toast.success('Comment Posted!', {
+      id: commentToast,
+    });
+
+    setInput('');
+    setCommentBoxVisible(false);
+    refreshComments();
+  };
 
   return (
     <div className="flex flex-col space-x-3 border-y border-gray-200 p-5">
@@ -46,7 +80,7 @@ const Tweet = ({ tweet }) => {
       </div>
 
       <div className="flex justify-between mt-5">
-        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
+        <div onClick={() => session && setCommentBoxVisible(!commentBoxVisible)} className="flex cursor-pointer items-center space-x-3 text-gray-400">
           <ChatAlt2Icon className="h-5 w-5" />
           <p>{comments.length}</p>
         </div>
@@ -60,6 +94,24 @@ const Tweet = ({ tweet }) => {
           <UploadIcon className="h-5 w-5" />
         </div>
       </div>
+
+      {commentBoxVisible && (
+        <form onSubmit={handleSubmit} className="mt-3 flex space-x-3">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="bg-gray-100 p-2 outline-none flex-1 rounded-lg"
+            placeholder="Write a comment..."
+          />
+          <button
+            type="submit"
+            disabled={!input || !session}
+            className="text-twitter_blue disabled:text-gray-200"
+          >Post
+          </button>
+        </form>
+      )}
 
       {comments?.length > 0 && (
         <div className="my-2 mt-5 max-h-44 space-y-5 overflow-y-scroll border-t border-gray-100 p-5">

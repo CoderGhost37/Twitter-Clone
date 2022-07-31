@@ -43,7 +43,7 @@ const TweetBox = ({ setTweets }) => {
 
     const newTweets = await fetchTweets();
     setTweets(newTweets);
-    toast('Tweet posted!');
+    toast.success('Tweet posted!');
 
     return json;
   };

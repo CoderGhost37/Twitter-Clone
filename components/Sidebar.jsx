@@ -16,7 +16,11 @@ const Sidebar = () => {
 
   return (
     <div className="flex flex-col items-center px-4 md:items-start col-span-2">
-      <img src="https://links.papareact.com/drq" alt="logo" className="h-10 w-10 m-3" />
+      <img
+        src="https://links.papareact.com/drq"
+        alt="logo"
+        className="h-10 w-10 m-3 cursor-pointer"
+      />
 
       <SidebarRow Icon={HomeIcon} title="Home" />
       <SidebarRow Icon={HashtagIcon} title="Explore" />
