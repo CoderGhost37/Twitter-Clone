@@ -25,20 +25,12 @@ export default {
     {
       name: 'profileImg',
       title: 'Profile Image',
-      type: 'image',
+      type: 'string',
     },
     {
       name: 'img',
       title: 'Tweet Image',
-      type: 'image',
-    },
-    {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
-      options: {
-        default: Date.now(),
-      }
+      type: 'string',
     },
   ],
 }

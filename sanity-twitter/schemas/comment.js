@@ -16,7 +16,7 @@ export default {
     {
       name: 'profileImg',
       title: 'Profile Image',
-      type: 'image',
+      type: 'string',
     },
     {
       name: 'tweet',

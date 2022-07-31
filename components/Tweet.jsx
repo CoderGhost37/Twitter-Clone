@@ -6,7 +6,6 @@ import { ChatAlt2Icon,
   UploadIcon,
   SwitchHorizontalIcon,
 } from '@heroicons/react/outline';
-import { urlFor } from '../utils/client';
 import { fetchComments } from '../utils/fetchComments';
 
 const Tweet = ({ tweet }) => {
@@ -23,7 +22,7 @@ const Tweet = ({ tweet }) => {
   return (
     <div className="flex flex-col space-x-3 border-y border-gray-200 p-5">
       <div className="flex space-x-3">
-        <img src={urlFor(tweet.profileImg)} alt="profileImg" className="h-10 w-10 rounded-full object-cover" />
+        <img src={tweet.profileImg} alt="profileImg" className="h-10 w-10 rounded-full object-cover" />
         <div>
           <div className="flex items-center space-x-1">
             <p className="mr-1 font-bold">{tweet.username}</p>
@@ -38,7 +37,7 @@ const Tweet = ({ tweet }) => {
 
           {tweet.img && (
             <img
-              src={urlFor(tweet.img)}
+              src={tweet.img}
               alt="img"
               className="m-5 ml-0 mb-1 max-h-60 rounded-lg object-cover shadow-sm"
             />
@@ -66,9 +65,9 @@ const Tweet = ({ tweet }) => {
         <div className="my-2 mt-5 max-h-44 space-y-5 overflow-y-scroll border-t border-gray-100 p-5">
             {comments.map((comment) => (
               <div key={comment._id} className="relative flex space-x-2">
-                <hr className="absolute left-5 top-10 h-8 border-x border-gray-400" />
+                <hr className="absolute left-5 top-10 h-8 border-x border-gray-400/30" />
                 <img
-                  src={urlFor(comment.profileImg)}
+                  src={comment.profileImg}
                   alt="profileImg"
                   className="h-7 w-7 mt-2 rounded-full object-cover"
                 />
