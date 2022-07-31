@@ -10,12 +10,16 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
+    "@next-auth/firebase-adapter": "^1.0.1",
     "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
+    "firebase": "^9.9.1",
     "next": "12.2.3",
+    "next-auth": "^4.10.2",
     "next-sanity": "^0.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.3.0",
     "react-timeago": "^7.1.0",
     "react-twitter-embed": "^4.0.4"
   },
