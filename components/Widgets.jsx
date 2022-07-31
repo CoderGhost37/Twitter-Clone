@@ -9,11 +9,13 @@ const Widgets = () => (
       <input type="text" placeholder="Search Twitter" className="bg-transparent flex-1 outline-none" />
     </div>
 
-    <TwitterTimelineEmbed
-      sourceType="profile"
-      screenName="elonmusk"
-      options={{ height: 400 }}
-    />
+    <div className="scrollbar-hide mt-5">
+      <TwitterTimelineEmbed
+        sourceType="profile"
+        screenName="CoderGhost37"
+        options={{ height: 500 }}
+      />
+    </div>
   </div>
 );
 

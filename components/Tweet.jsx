@@ -80,18 +80,18 @@ const Tweet = ({ tweet }) => {
       </div>
 
       <div className="flex justify-between mt-5">
-        <div onClick={() => session && setCommentBoxVisible(!commentBoxVisible)} className="flex cursor-pointer items-center space-x-3 text-gray-400">
-          <ChatAlt2Icon className="h-5 w-5" />
+        <div onClick={() => session && setCommentBoxVisible(!commentBoxVisible)} className="flex cursor-pointer items-center space-x-3 text-gray-400 hover:text-twitter_blue">
+          <ChatAlt2Icon className="h-7 w-7 hover:bg-gray-200 rounded-full p-1" />
           <p>{comments.length}</p>
         </div>
-        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
-          <SwitchHorizontalIcon className="h-5 w-5" />
+        <div className="flex cursor-pointer items-center space-x-3 text-gray-400 hover:text-green-500">
+          <SwitchHorizontalIcon className="h-7 w-7 hover:bg-gray-200 rounded-full p-1" />
         </div>
-        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
-          <HeartIcon className="h-5 w-5" />
+        <div className="flex cursor-pointer items-center space-x-3 text-gray-400 hover:text-pink-500">
+          <HeartIcon className="h-7 w-7 hover:bg-gray-200 rounded-full p-1" />
         </div>
-        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
-          <UploadIcon className="h-5 w-5" />
+        <div className="flex cursor-pointer items-center space-x-3 text-gray-400 hover:text-twitter_blue">
+          <UploadIcon className="h-7 w-7 hover:bg-gray-200 rounded-full p-1" />
         </div>
       </div>
 
