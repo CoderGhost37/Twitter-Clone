@@ -71,7 +71,7 @@ const TweetBox = ({ setTweets }) => {
             className="h-24 text-xl placeholder:text-xl outline-none rounded-lg p-2 w-full"
             placeholder="What's happening?"
           />
-          <div className="flex items-center">
+          <div className="flex flex-col sm:flex-row sm:items-center">
             <div className="flex flex-1 space-x-5 text-twitter_blue">
               <PhotographIcon onClick={() => setImageUrlBox(true)} className="h-5 w-5 cursor-pointer transition-transform duration-150 ease-out hover:scale-150" />
               <SearchCircleIcon className="h-5 w-5 cursor-pointer transition-transform duration-150 ease-out hover:scale-150" />
@@ -82,7 +82,7 @@ const TweetBox = ({ setTweets }) => {
             <button
               onClick={handleSubmit}
               disabled={!input || !session}
-              className="bg-twitter_blue text-white px-5 py-2 font-bold rounded-full disabled:opacity-40"
+              className="bg-twitter_blue text-white mt-5 sm:mt-0 px-5 py-2 font-bold rounded-full disabled:opacity-40"
             >Tweet
             </button>
           </div>

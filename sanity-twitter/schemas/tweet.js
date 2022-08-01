@@ -9,15 +9,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'text',
-        maxLength: 100,
-      },
-    },
-    {
       name: 'username',
       title: 'Username',
       type: 'string',

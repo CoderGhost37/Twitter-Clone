@@ -60,7 +60,7 @@ const Tweet = ({ tweet }) => {
         <div>
           <div className="flex items-center space-x-1">
             <p className="mr-1 font-bold">{tweet.username}</p>
-            <p className="hidden text-smtext-gray-500 sm:inline">@{tweet.username.replace(/\s+/g, '').toLowerCase()} ·</p>
+            <p className="hidden text-sm text-gray-500 sm:inline">@{tweet.username.replace(/\s+/g, '').toLowerCase()} ·</p>
 
             <TimeAgo
               date={tweet._createdAt}
