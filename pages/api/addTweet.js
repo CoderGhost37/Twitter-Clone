@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
   const apiEndpoint = `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2022-03-10/data/mutate/production`;
 
-  const result = await fetch(apiEndpoint, {
+  await fetch(apiEndpoint, {
     headers: {
       'content-type': 'application/json',
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_TOKEN}`,
@@ -25,8 +25,6 @@ export default async function handler(req, res) {
     body: JSON.stringify(mutations),
     method: 'POST',
   });
-
-  const json = await result.json();
 
   res.status(200).json({ message: 'Done!' });
 }

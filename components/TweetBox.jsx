@@ -80,6 +80,7 @@ const TweetBox = ({ setTweets }) => {
               <LocationMarkerIcon className="h-5 w-5 cursor-pointer transition-transform duration-150 ease-out hover:scale-150" />
             </div>
             <button
+              type="submit"
               onClick={handleSubmit}
               disabled={!input || !session}
               className="bg-twitter_blue text-white mt-5 sm:mt-0 px-5 py-2 font-bold rounded-full disabled:opacity-40"
