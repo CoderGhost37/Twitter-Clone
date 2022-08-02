@@ -33,6 +33,7 @@ const Feed = ({ posts }) => {
 
       <div>
         {tweets
+          // eslint-disable-next-line no-underscore-dangle
           ? (tweets.map((tweet) => <Tweet key={tweet._id} tweet={tweet} />))
           : <p className="text-center font-bold text-2xl">Your feed is empty</p>}
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
 import TimeAgo from 'react-timeago';
 
@@ -38,7 +39,7 @@ const Tweet = ({ tweet }) => {
       profileImg: session?.user?.image || 'https://links.papareact.com/gll',
     };
 
-    const result = await fetch('/api/addComment', {
+    await fetch('/api/addComment', {
       body: JSON.stringify(comment),
       method: 'POST',
     });
